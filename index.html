@@ -1,1 +1,234 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087fa8">
+  <title>ILMO Health</title>
+
+  <style>
+    :root {
+      --blue: #087fa8;
+      --cyan: #20b8d5;
+      --light: #eaf9ff;
+      --white: #ffffff;
+      --ink: #163746;
+      --muted: #63818e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--ink);
+    }
+
+    header {
+      background: var(--white);
+      padding: 22px 18px;
+      border-bottom: 1px solid #d6edf5;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: white;
+      border-radius: 16px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--blue);
+      font-size: 25px;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 760px;
+      margin: auto;
+      padding: 20px 16px 35px;
+    }
+
+    .welcome {
+      padding: 22px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #d8f5ff, #ffffff);
+      margin-bottom: 22px;
+    }
+
+    .welcome h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .welcome p {
+      margin: 0;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin: 0 0 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .item {
+      display: block;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--white);
+      padding: 20px 15px;
+      border: 1px solid #dceef4;
+      border-radius: 17px;
+      min-height: 135px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .item:active {
+      transform: scale(0.98);
+    }
+
+    .item:hover {
+      border-color: var(--cyan);
+    }
+
+    .item .icon {
+      font-size: 30px;
+      margin-bottom: 13px;
+    }
+
+    .item h3 {
+      font-size: 17px;
+      margin: 0 0 8px;
+    }
+
+    .item p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .science {
+      grid-column: 1 / -1;
+      min-height: auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .science .icon {
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 20px;
+    }
+
+    @media (max-width: 350px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .science {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">IH</div>
+      <div>
+        <h1>ILMO Health</h1>
+        <div class="subtitle">منصتك التعليمية للصيدلة والعلوم الطبية</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>أهلاً بك في عالم الصيدلة</h2>
+      <p>
+        تعلّم الأدوية، اختبر معلوماتك، اقرأ المواد العلمية
+        وتابع تقدمك الدراسي في مكان واحد.
+      </p>
+    </section>
+
+    <h2 class="section-title">الأقسام الرئيسية</h2>
+
+    <section class="grid">
+      <a class="item" href="drugs.html">
+        <div class="icon">💊</div>
+        <h3>الأدوية</h3>
+        <p>الأسماء والاستعمالات والجرعات والتحذيرات.</p>
+      </a>
+
+      <a class="item" href="cases.html">
+        <div class="icon">🩺</div>
+        <h3>الكيسات</h3>
+        <p>حالات دوائية وأسئلة بمستويات مختلفة.</p>
+      </a>
+
+      <a class="item" href="sources.html">
+        <div class="icon">📚</div>
+        <h3>المصادر</h3>
+        <p>المراجع العلمية ومصادر المعلومات الطبية.</p>
+      </a>
+
+      <a class="item" href="progress.html">
+        <div class="icon">📊</div>
+        <h3>التقدم</h3>
+        <p>متابعة الإنجاز والنتائج وعدد الأخطاء.</p>
+      </a>
+
+      <a class="item science" href="science.html">
+        <div class="icon">🎓</div>
+        <div>
+          <h3>المادة العلمية</h3>
+          <p>
+            الفارماكولوجي، علم السموم، التداخلات الدوائية
+            والعلوم الصيدلانية الأخرى.
+          </p>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    ILMO Health · منصة تعليمية صيدلانية
+  </footer>
+</body>
+</html>
