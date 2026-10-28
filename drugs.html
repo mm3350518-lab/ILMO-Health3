@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087fa8">
+<title>ILMO Health | مكتبة الأدوية</title>
+<style>
+:root{--blue:#087fa8;--cyan:#20b8d5;--light:#eaf9ff;--ink:#163746;--muted:#63818e;--white:#fff;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--light);color:var(--ink);font-family:Arial,sans-serif}
+header{background:white;padding:18px 16px;border-bottom:1px solid #d6edf5}
+.head{max-width:1000px;margin:auto;display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:14px;background:var(--blue);color:white;display:grid;place-items:center;font-weight:bold;font-size:21px}
+h1{margin:0;color:var(--blue);font-size:23px} .sub{color:var(--muted);font-size:13px;margin-top:5px}
+main{max-width:1000px;margin:auto;padding:18px 14px 40px}
+.intro{background:linear-gradient(135deg,#d7f5ff,#fff);border-radius:18px;padding:18px;margin-bottom:16px;line-height:1.8}
+.notice{font-size:12px;color:#805b14;background:#fff7df;border:1px solid #f3df9d;border-radius:12px;padding:12px;line-height:1.8;margin-top:10px}
+.tools{display:grid;grid-template-columns:1fr;gap:10px;margin:15px 0}
+input,select{width:100%;padding:13px;border:1px solid #cce4ed;border-radius:12px;background:white;color:var(--ink);font-size:15px;outline-color:var(--cyan)}
+.systems{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 18px}
+.sysbtn{border:1px solid #d5eaf2;background:white;border-radius:13px;padding:12px 10px;text-align:right;color:var(--ink);cursor:pointer;min-height:62px;font-size:14px}
+.sysbtn.active{background:#d8f5ff;border:2px solid var(--blue);padding:11px 9px}
+.sysbtn small{display:block;color:var(--muted);margin-top:5px}
+.summary{display:flex;justify-content:space-between;gap:8px;align-items:center;margin:16px 0;font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:1fr;gap:12px}
+.drug{background:white;border:1px solid #dceef4;border-radius:15px;padding:15px}
+.drug h3{margin:0 0 5px;color:var(--blue);font-size:18px}
+.arabic{font-size:14px;font-weight:bold;margin-bottom:10px}
+.tag{display:inline-block;background:#eaf9ff;color:#087fa8;border-radius:20px;padding:5px 9px;font-size:12px;margin-bottom:10px}
+.detail{font-size:13px;line-height:1.8;margin:6px 0}
+.detail b{color:#345c6c}
+.empty{background:white;border-radius:14px;padding:20px;text-align:center;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media(min-width:650px){.tools{grid-template-columns:2fr 1fr}.systems{grid-template-columns:repeat(3,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header><div class="head"><div class="logo">IH</div><div><h1>ILMO Health</h1><div class="sub">مكتبة الأدوية — مقسمة حسب الأجهزة والاختصاصات</div></div></div></header>
+<main>
+<section class="intro"><strong>مكتبة الأدوية التعليمية</strong><br>اختار النظام الدوائي من الأزرار، أو ابحث بالاسم العلمي أو العربي أو الاستعمال. كل نظام محفوظ بملف JavaScript مستقل حتى تقدر تضيفه أو تطوره لاحقاً.
+<div class="notice"><b>تنبيه مهم:</b> هذه مكتبة تعليمية أولية وليست قائمة بكل الأدوية الموجودة عالمياً. المعلومات مختصرة ولا تغني عن النشرة الرسمية أو مرجع دوائي حديث أو رأي المختص. لم نضع جرعات علاجية عامة لأن الجرعة تعتمد على التشخيص والعمر ووظائف الأعضاء والحالة السريرية.</div></section>
+<div class="tools">
+<input id="search" type="search" placeholder="ابحث عن دواء أو اسم عربي أو استعمال..." aria-label="البحث عن دواء">
+<select id="sort" aria-label="ترتيب النتائج"><option value="default">الترتيب الأصلي</option><option value="az">الاسم العلمي A–Z</option><option value="za">الاسم العلمي Z–A</option></select>
+</div>
+<h2 style="font-size:18px;margin-bottom:8px">اختار النظام الدوائي</h2>
+<div id="systems" class="systems"></div>
+<div class="summary"><span id="systemName">كل الأنظمة</span><span id="count"></span></div>
+<div id="cards" class="cards"></div>
+</main>
+<footer>ILMO Health · محتوى تعليمي؛ تحقق من المراجع الحديثة قبل اتخاذ أي قرار علاجي.</footer>
+  <script src="drug-systems/cardiovascular.js"></script>
+  <script src="drug-systems/hematology.js"></script>
+  <script src="drug-systems/respiratory.js"></script>
+  <script src="drug-systems/gastrointestinal.js"></script>
+  <script src="drug-systems/endocrine-diabetes.js"></script>
+  <script src="drug-systems/antiinfectives.js"></script>
+  <script src="drug-systems/neurology-psychiatry.js"></script>
+  <script src="drug-systems/pain-inflammation.js"></script>
+  <script src="drug-systems/renal-urology.js"></script>
+  <script src="drug-systems/dermatology-eye-ear.js"></script>
+  <script src="drug-systems/obgyn.js"></script>
+  <script src="drug-systems/oncology-immunology.js"></script>
+  <script src="drug-systems/emergency-toxicology.js"></script>
+<script>
+const allSystems = window.ILMO_DRUG_SYSTEMS || {};
+const systemsBox = document.getElementById('systems');
+const cardsBox = document.getElementById('cards');
+const searchBox = document.getElementById('search');
+const sortBox = document.getElementById('sort');
+const countBox = document.getElementById('count');
+const nameBox = document.getElementById('systemName');
+let selected = 'all';
+
+function listSystems() {
+  systemsBox.innerHTML = '';
+  const all = document.createElement('button');
+  all.className = 'sysbtn' + (selected === 'all' ? ' active' : '');
+  all.innerHTML = '📚 كل الأنظمة<small>عرض جميع الأدوية المحملة</small>';
+  all.onclick = () => { selected = 'all'; render(); };
+  systemsBox.appendChild(all);
+  Object.values(allSystems).forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'sysbtn' + (selected === s.id ? ' active' : '');
+    btn.innerHTML = `${s.icon} ${s.title}<small>${s.drugs.length} أدوية في النسخة الأولية</small>`;
+    btn.onclick = () => { selected = s.id; render(); };
+    systemsBox.appendChild(btn);
+  });
+}
+function safe(value) {
+  return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+function render() {
+  listSystems();
+  const query = searchBox.value.trim().toLowerCase();
+  let entries = Object.values(allSystems)
+    .filter(s => selected === 'all' || s.id === selected)
+    .flatMap(s => s.drugs.map(d => ({system:s.title, drug:d})))
+    .filter(x => x.drug.join(' ').toLowerCase().includes(query) || x.system.toLowerCase().includes(query));
+  if (sortBox.value === 'az') entries.sort((a,b)=>a.drug[0].localeCompare(b.drug[0]));
+  if (sortBox.value === 'za') entries.sort((a,b)=>b.drug[0].localeCompare(a.drug[0]));
+  nameBox.textContent = selected === 'all' ? 'كل الأنظمة' : (allSystems[selected]?.title || 'النظام المختار');
+  countBox.textContent = `عدد النتائج: ${entries.length}`;
+  if (!entries.length) {
+    cardsBox.innerHTML = '<div class="empty">ما لقينا نتائج. جرّب كلمة ثانية أو اختار نظاماً آخر.</div>';
+    return;
+  }
+  cardsBox.innerHTML = entries.map(x => {
+    const d=x.drug;
+    return `<article class="drug">
+      <h3>${safe(d[0])}</h3>
+      <div class="arabic">${safe(d[1])}</div>
+      <span class="tag">${safe(d[2])}</span>
+      <div class="detail"><b>النظام:</b> ${safe(x.system)}</div>
+      <div class="detail"><b>الاستعمالات التعليمية:</b> ${safe(d[3])}</div>
+      <div class="detail"><b>ملاحظات وتحذيرات:</b> ${safe(d[4])}</div>
+    </article>`;
+  }).join('');
+}
+searchBox.addEventListener('input', render);
+sortBox.addEventListener('change', render);
+render();
+</script>
+</body>
+</html>
